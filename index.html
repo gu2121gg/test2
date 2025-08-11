@@ -72,8 +72,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-color: #0c0a09;
             color: #fff;
             display: flex;
@@ -82,6 +82,7 @@
             flex-direction: column;
             z-index: 1000;
             transition: opacity 0.5s ease-in-out;
+            text-align: center;
         }
         
         #loading-screen.hidden {
@@ -113,9 +114,99 @@
             opacity: 0.1;
             pointer-events: none;
         }
+
+        /* Ajustes de centralização e responsividade para todo o site */
+
+        /* 1. Ajuste no body para garantir largura total e centralização */
+        body {
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* 2. Ajuste no loading-screen para centralizar em qualquer tela */
+        #loading-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        #loading-screen .flex {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 3. Ajuste no header para centralizar tudo e garantir responsividade */
+        header {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        header .overlay-dark {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        header p {
+            font-size: 0.875rem;
+        }
+
+        /* 4. Ajuste nas seções para garantir centralização e responsividade */
+        section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 5. Ajuste no formulário para centralizar e responsividade */
+        #orcamento {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        #orcamento .container {
+            max-width: 600px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        #orcamento h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        #orcamento p {
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 6. Ajuste no rodapé para centralizar logo e textos */
+        footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        footer .container {
+            text-align: center;
+        }
+        footer .flex {
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        footer h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        footer p {
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-200">
+<body class="bg-gray-950 text-gray-200 min-h-screen w-full">
 
     <!-- Tela de Carregamento -->
     <div id="loading-screen">
@@ -151,50 +242,50 @@
     <canvas id="particles-canvas"></canvas>
 
     <!-- Seção de Cabeçalho/Hero com animação de fade-in e paralaxe -->
-    <header class="parallax-bg text-white py-12 px-4 md:px-12 flex flex-col items-center justify-center text-center rounded-b-3xl shadow-xl" data-aos="fade-up">
-        <div class="overlay-dark p-8 rounded-2xl max-w-4xl mx-auto">
+    <header class="parallax-bg text-white py-8 px-2 md:px-12 flex flex-col items-center justify-center text-center rounded-b-3xl shadow-xl" data-aos="fade-up">
+        <div class="overlay-dark p-4 md:p-8 rounded-2xl max-w-4xl mx-auto w-full">
             <!-- Logo da empresa dentro de uma bolha branca com borda amarela -->
-            <div class="flex items-center justify-center mb-8">
+            <div class="flex items-center justify-center mb-6 md:mb-8 w-full">
                 <div style="
                     background: #fff;
                     border-radius: 9999px;
                     box-shadow: 0 4px 32px rgba(0,0,0,0.18);
                     border: 4px solid #facc15;
-                    width: 8rem;
-                    height: 8rem;
+                    width: 7rem;
+                    height: 7rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                 ">
                     <img src="Black__White_Modern_Bold_Believe_Motivational_T-Shirt.png"
                         alt="Logo da Martins Soluções"
-                        class="w-28 h-28 object-contain"
+                        class="w-24 h-24 object-contain"
                         style="filter: none;">
                 </div>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-teal-400">
+            <h1 class="text-2xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-teal-400">
                 Você Pode Resolver o Problema da Sua Casa Sem Precisar Ir à Justiça!
             </h1>
-            <p class="text-lg md:text-xl mb-8">
+            <p class="text-base md:text-lg mb-4">
                 Rachaduras, infiltrações, piso estufando ou danos causados por obra vizinha?
             </p>
-            <p class="text-md md:text-lg mb-8 text-gray-300">
+            <p class="text-sm md:text-lg mb-6 text-gray-300">
                 Com um laudo ou parecer técnico assinado por engenheiro civil com registro no CREA,
                 você pode exigir a solução diretamente com quem causou o problema, sem contratar
                 advogado e sem processo judicial. Não Jogue dinheiro e tempo fora. ADVOGADO É
                 A ÚLTIMA OPÇÃO. EVITE ANOS DE BRIGA JUDICIAL.
             </p>
-            <a href="#orcamento" class="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105">
+            <a href="#orcamento" class="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105 inline-block">
                 Solicite seu orçamento
             </a>
         </div>
     </header>
 
     <!-- Seção de Cartões de Imagens com animação de slide-up -->
-    <section class="py-16 px-4 md:px-12 bg-gray-900">
+    <section class="py-16 px-2 md:px-12 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-400" data-aos="fade-up">Nossos Serviços em Imagens</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-teal-400" data-aos="fade-up">Nossos Serviços em Imagens</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1 - Problemas Estruturais -->
                 <div class="bg-gray-800 rounded-3xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700 group" data-aos="fade-up" data-aos-delay="100">
                     <img src="card1.jpg" alt="Exemplo de casa com problemas estruturais" class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
@@ -224,9 +315,9 @@
     </section>
 
     <!-- Seção de Dados Estatísticos com animação -->
-    <section class="py-16 px-4 md:px-12 bg-gray-950">
+    <section class="py-16 px-2 md:px-12 bg-gray-950">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-400" data-aos="fade-up">Dados Sobre Problemas em Domicílios</h2>
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-teal-400" data-aos="fade-up">Dados Sobre Problemas em Domicílios</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- IBGE Censo 2022 -->
                 <div class="bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-700" data-aos="fade-left" data-aos-delay="100">
@@ -260,9 +351,9 @@
     </section>
 
     <!-- Seção Situações Comuns com animação -->
-    <section class="py-16 px-4 md:px-12 bg-gray-900">
+    <section class="py-16 px-2 md:px-12 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-400" data-aos="fade-up">Situações Comuns Que Atendemos</h2>
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-teal-400" data-aos="fade-up">Situações Comuns Que Atendemos</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-700" data-aos="fade-right" data-aos-delay="100">
                     <h3 class="text-xl font-semibold mb-4 text-teal-400">Problemas Estruturais</h3>
@@ -355,7 +446,7 @@
     </section>
 
     <!-- Seção Por Que Escolher com animação -->
-    <section class="py-16 px-4 md:px-12 bg-gray-900">
+    <section class="py-16 px-2 md:px-12 bg-gray-900">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-400" data-aos="fade-up">Por Que Escolher a Martins Laudos Técnicos</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -413,10 +504,12 @@
     </section>
 
     <!-- Seção de Formulário de Orçamento com animação - OTIMIZADA PARA MOBILE -->
-    <section id="orcamento" class="py-16 px-4 md:px-12 bg-gray-950" data-aos="fade-up">
-        <div class="container mx-auto max-w-4xl bg-gray-900 p-8 rounded-3xl shadow-xl border border-gray-700">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-teal-400">Não Deixe o Problema Piorar</h2>
-            <p class="text-center text-lg mb-8 text-gray-400">Quanto antes for documentado, mais fácil é resolver. Com um laudo técnico profissional, você protege seu imóvel, economiza com reformas e evita dor de cabeça.</p>
+    <section id="orcamento" class="py-16 px-2 md:px-12 bg-gray-950" data-aos="fade-up">
+        <div class="container mx-auto max-w-2xl bg-gray-900 p-4 md:p-8 rounded-3xl shadow-xl border border-gray-700">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-teal-400">Não Deixe o Problema Piorar</h2>
+            <p class="text-center text-base md:text-lg mb-6 md:mb-8 text-gray-400">
+                Quanto antes for documentado, mais fácil é resolver. Com um laudo técnico profissional, você protege seu imóvel, economiza com reformas e evita dor de cabeça.
+            </p>
             <!-- Ação do formulário configurada para Formspree. É NECESSÁRIO ALTERAR O CÓDIGO `your_form_id` ABAIXO! -->
             <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST" class="space-y-6">
                 <div>
